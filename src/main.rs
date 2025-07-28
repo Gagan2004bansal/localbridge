@@ -27,7 +27,8 @@ async fn main() {
             ttl,
         } => {
             println!("{}", "🔌 Connecting to tunnel server...".green());
-            client::run_client(*local_port, *remote_port, token.clone(), *ttl).await;
-        }
+            let remote_host = "localbridge-production.up.railway.app"; // <-- Replace with actual Railway domain
+            let _ = client::run_client(*local_port, remote_host, *remote_port).await;
+        }        
     }
 }
